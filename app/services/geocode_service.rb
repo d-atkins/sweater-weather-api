@@ -4,7 +4,7 @@ class GeocodeService
       f.params['key'] = ENV['GEOCODE_API_KEY']
       f.params['address'] = query
     end
-    JSON.parse(response.body, symbolize_names: true)[:results].first[:geometry]
+    JSON.parse(response.body, symbolize_names: true)[:results].first
   end
 
   private
