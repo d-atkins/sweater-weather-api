@@ -11,7 +11,7 @@ RSpec.describe 'Antipode API',type: :request do
 
     expect(response).to be_successful
 
-    antipode_info = JSON.parse(response.body, symbolize_names: true)[:data][:attributes]
+    antipode_info = JSON.parse(response.body, symbolize_names: true)
 
     expect(antipode_info[:location_name]).to eq('Some City in Argentina')
     expect(antipode_info[:forecast][:summary]).to eq('Some weather')
