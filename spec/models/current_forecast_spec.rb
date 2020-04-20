@@ -4,12 +4,11 @@ RSpec.describe CurrentForecast do
   before(:each) do
     json_response = File.read('./spec/fixtures/weather_response.json')
     weather_data = JSON.parse(json_response, symbolize_names: true)
-    @current_forecast = CurrentForecast.new(weather_data[:current], 'Denver, CO, USA')
+    @current_forecast = CurrentForecast.new(weather_data[:current])
   end
 
   describe 'attributes' do
     it 'has weather forecast info' do
-      expect(@current_forecast.location).to eq('Denver, CO, USA')
       expect(@current_forecast.unix_time).to eq(1587325934)
       expect(@current_forecast.weather.first[:main]).to eq('Clear')
       expect(@current_forecast.weather.first[:description]).to eq('clear sky')

@@ -10,8 +10,7 @@ class CurrentForecast
               :unix_sunrise,
               :unix_sunset
 
-  def initialize(forecast_data, location)
-    @location = location
+  def initialize(forecast_data)
     @unix_time = forecast_data[:dt]
     @weather = forecast_data[:weather]
     @temp = forecast_data[:temp].round
