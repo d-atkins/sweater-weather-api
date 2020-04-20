@@ -3,11 +3,10 @@ class AntipodeFacade
 
   def initialize(location)
     @location = location
-    # require "pry"; binding.pry
   end
 
   def location_name
-
+    antipode_location_data.first[:formatted_address]
   end
 
   def forecast
@@ -33,5 +32,9 @@ class AntipodeFacade
 
     def antipode_weather
       @antipode_weather ||= OpenWeatherService.get_weather_data(antipode_coordinates[:lat], antipode_coordinates[:long])[:current]
+    end
+
+    def antipode_location_data
+      @antipode_location_data ||= GeocodeService.get_location(antipode_coordinates[:lat], antipode_coordinates[:long])
     end
 end
