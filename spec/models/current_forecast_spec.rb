@@ -25,7 +25,7 @@ RSpec.describe CurrentForecast do
 
   describe 'methods' do
     it 'local time' do
-      expect(@current_forecast.local_time).to eq (" 1:52 PM, April 19")
+      expect(@current_forecast.local_time).to eq ("1:52 PM, April 19")
     end
   end
 end

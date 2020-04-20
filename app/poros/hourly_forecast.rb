@@ -7,6 +7,6 @@ class HourlyForecast < Forecast
   end
 
   def local_time(timezone)
-    super(timezone).strftime("%l %p")
+    super(timezone).strftime("%l %p").strip
   end
 end

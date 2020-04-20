@@ -22,7 +22,7 @@ class CurrentForecast < Forecast
   end
 
   def local_time
-    super(@timezone).strftime("%l:%M %p, %B %e")
+    super(@timezone).strftime("%l:%M %p, %B %e").strip
   end
 
   private
