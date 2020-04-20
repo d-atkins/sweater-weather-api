@@ -19,6 +19,10 @@ class CurrentForecast < Forecast
     @unix_sunset = forecast_data[:sunset]
   end
 
+  def local_time(timezone)
+    super(timezone).strftime("%l:%M %p, %B %e")
+  end
+
   private
     def miles(meters)
       (meters / 1609.344).round

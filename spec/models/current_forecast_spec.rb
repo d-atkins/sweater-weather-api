@@ -22,4 +22,10 @@ RSpec.describe CurrentForecast do
       expect(@current_forecast.unix_sunset).to eq(1587346916)
     end
   end
+
+  describe 'methods' do
+    it 'local time' do
+      expect(@current_forecast.local_time('America/Denver')).to eq (" 1:52 PM, April 19")
+    end
+  end
 end

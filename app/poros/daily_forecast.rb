@@ -7,7 +7,7 @@ class DailyForecast < Forecast
     @max = daily_forecast_data[:temp][:max].round
   end
 
-  def day_of_week(timezone)
-    local_time(timezone).strftime('%A')
+  def local_time(timezone)
+    super(timezone).strftime("%A")
   end
 end

@@ -5,4 +5,8 @@ class HourlyForecast < Forecast
     super(hourly_forecast_data)
     @temp = hourly_forecast_data[:temp].round
   end
+
+  def local_time(timezone)
+    super(timezone).strftime("%l %p")
+  end
 end

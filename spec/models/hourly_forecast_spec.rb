@@ -16,4 +16,10 @@ RSpec.describe HourlyForecast do
       expect(@hour_forecast.temp).to eq(54)
     end
   end
+
+  describe 'methods' do
+    it 'local time' do
+      expect(@hour_forecast.local_time('America/Denver')).to eq (" 1 PM")
+    end
+  end
 end
