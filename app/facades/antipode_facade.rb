@@ -7,13 +7,13 @@ class AntipodeFacade
   end
 
   def location_name
-    antipode_location_data.first[:formatted_address]
+    antipode_location_name
   end
 
   def forecast
     antipode_forecast = Hash.new
-    antipode_forecast[:summary] = antipode_weather[:weather].first[:description].titlecase
-    antipode_forecast[:current_temperature] = antipode_weather[:temp].round
+    antipode_forecast[:summary] = antipode_weather_summary
+    antipode_forecast[:current_temperature] = antipode_current_temp
     antipode_forecast
   end
 
@@ -37,5 +37,17 @@ class AntipodeFacade
 
     def antipode_location_data
       @antipode_location_data ||= GeocodeService.get_location(antipode_coordinates[:lat], antipode_coordinates[:long])
+    end
+
+    def antipode_location_name
+      antipode_location_data.first[:formatted_address]
+    end
+
+    def antipode_weather_summary
+      antipode_weather[:weather].first[:description].titlecase
+    end
+
+    def antipode_current_temp
+      antipode_weather[:temp].round
     end
 end
