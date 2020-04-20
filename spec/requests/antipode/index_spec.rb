@@ -16,4 +16,15 @@ RSpec.describe 'Antipode API',type: :request do
     expect(antipode_info[:attributes][:forecast][:current_temperature]).to be_instance_of(Integer)
     expect(antipode_info[:attributes][:search_location]).to eq('Hong Kong')
   end
+
+  it 'sends an error for missing param' do
+    get '/api/v1/antipode'
+
+    expect(response).to be_successful
+
+    error_info = JSON.parse(response.body, symbolize_names: true)
+
+    expect(error_info[:error_message]).to eq("Invalid request. Missing the 'location' parameter.")
+    expect(error_info[:status]).to eq("INVALID REQUEST")
+  end
 end
