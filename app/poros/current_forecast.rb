@@ -18,7 +18,7 @@ class CurrentForecast < Forecast
     @uvi = forecast_data[:uvi]
     @unix_sunrise = forecast_data[:sunrise]
     @unix_sunset = forecast_data[:sunset]
-    @timezone = timezone
+    @current_time = local_time
   end
 
   def local_time
