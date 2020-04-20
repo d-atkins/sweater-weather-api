@@ -1,8 +1,9 @@
 class AntipodeFacade
-  attr_reader :location_name, :forecast, :search_location
+  attr_reader :id, :location_name, :forecast, :search_location
 
   def initialize(location)
     @location = location
+    @id = nil
   end
 
   def location_name
