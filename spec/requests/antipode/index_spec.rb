@@ -11,11 +11,13 @@ RSpec.describe 'Antipode API',type: :request do
 
     expect(response).to be_successful
 
-    antipode_info = JSON.parse(response.body, symbolize_names: true)
+    antipode_info = JSON.parse(response.body, symbolize_names: true)[:data]
 
-    expect(antipode_info[:location_name]).to eq('Some City in Argentina')
-    expect(antipode_info[:forecast][:summary]).to eq('Some weather')
-    expect(antipode_info[:forecast][:current_temperature]).to eq(123)
-    expect(antipode_info[:search_location]).to eq('Hong Kong')
+    expect(antipode_info[:id]).to be_nil
+    expect(antipode_info[:type]).to eq('antipode')
+    expect(antipode_info[:attributes][:location_name]).to eq('RP69, Jujuy, Argentina')
+    expect(antipode_info[:attributes][:forecast][:summary]).to eq('Clear Sky')
+    expect(antipode_info[:attributes][:forecast][:current_temperature]).to eq(54)
+    expect(antipode_info[:attributes][:search_location]).to eq('Hong Kong')
   end
 end
