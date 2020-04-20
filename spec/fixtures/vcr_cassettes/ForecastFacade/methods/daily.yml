@@ -21,7 +21,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Mon, 20 Apr 2020 22:09:01 GMT
+      - Mon, 20 Apr 2020 22:09:02 GMT
       Pragma:
       - no-cache
       Expires:
@@ -41,7 +41,7 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       Server-Timing:
-      - gfet4t7; dur=261
+      - gfet4t7; dur=36
       Alt-Svc:
       - quic=":443"; ma=2592000; v="46,43",h3-Q050=":443"; ma=2592000,h3-Q049=":443";
         ma=2592000,h3-Q048=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443";
@@ -111,7 +111,7 @@ http_interactions:
            "status" : "OK"
         }
     http_version: null
-  recorded_at: Mon, 20 Apr 2020 22:09:01 GMT
+  recorded_at: Mon, 20 Apr 2020 22:09:02 GMT
 - request:
     method: get
     uri: https://api.openweathermap.org/data/2.5/onecall?appid=<OPEN_WEATER_API_KEY>&lat=28.5383355&lon=-81.3792365&units=imperial
@@ -133,7 +133,7 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Mon, 20 Apr 2020 22:09:01 GMT
+      - Mon, 20 Apr 2020 22:09:03 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -150,7 +150,7 @@ http_interactions:
       - GET, POST
     body:
       encoding: UTF-8
-      string: '{"lat":28.54,"lon":-81.38,"timezone":"America/New_York","current":{"dt":1587420541,"sunrise":1587380054,"sunset":1587426839,"temp":84.65,"feels_like":77.38,"pressure":1007,"humidity":40,"dew_point":57.69,"uvi":10.31,"clouds":1,"visibility":16093,"wind_speed":17.22,"wind_deg":270,"wind_gust":27.51,"weather":[{"id":800,"main":"Clear","description":"clear
+      string: '{"lat":28.54,"lon":-81.38,"timezone":"America/New_York","current":{"dt":1587420543,"sunrise":1587380054,"sunset":1587426839,"temp":84.65,"feels_like":77.38,"pressure":1007,"humidity":40,"dew_point":57.69,"uvi":10.31,"clouds":1,"visibility":16093,"wind_speed":17.22,"wind_deg":270,"wind_gust":27.51,"weather":[{"id":800,"main":"Clear","description":"clear
         sky","icon":"01d"}],"rain":{}},"hourly":[{"dt":1587420000,"temp":84.65,"feels_like":78.37,"pressure":1007,"humidity":40,"dew_point":57.69,"clouds":1,"wind_speed":15.46,"wind_deg":270,"weather":[{"id":800,"main":"Clear","description":"clear
         sky","icon":"01d"}]},{"dt":1587423600,"temp":82.04,"feels_like":77.56,"pressure":1007,"humidity":45,"dew_point":58.62,"clouds":44,"wind_speed":12.86,"wind_deg":275,"weather":[{"id":802,"main":"Clouds","description":"scattered
         clouds","icon":"03d"}]},{"dt":1587427200,"temp":78.76,"feels_like":74.77,"pressure":1009,"humidity":46,"dew_point":56.26,"clouds":70,"wind_speed":10.54,"wind_deg":273,"weather":[{"id":803,"main":"Clouds","description":"broken
@@ -209,5 +209,5 @@ http_interactions:
         clouds","icon":"02d"}],"clouds":24,"uvi":10.47},{"dt":1588006800,"sunrise":1587984462,"sunset":1588031890,"temp":{"day":79.39,"min":63.32,"max":81.34,"night":63.97,"eve":71.31,"morn":63.32},"feels_like":{"day":71.4,"night":61.07,"eve":67.98,"morn":55.72},"pressure":1020,"humidity":17,"dew_point":32.38,"wind_speed":7.54,"wind_deg":346,"weather":[{"id":800,"main":"Clear","description":"clear
         sky","icon":"01d"}],"clouds":0,"uvi":10.72}]}'
     http_version: null
-  recorded_at: Mon, 20 Apr 2020 22:09:01 GMT
+  recorded_at: Mon, 20 Apr 2020 22:09:03 GMT
 recorded_with: VCR 5.1.0

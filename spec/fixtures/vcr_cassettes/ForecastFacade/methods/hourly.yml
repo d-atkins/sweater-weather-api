@@ -21,7 +21,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Mon, 20 Apr 2020 22:09:01 GMT
+      - Mon, 20 Apr 2020 22:09:02 GMT
       Pragma:
       - no-cache
       Expires:
@@ -41,7 +41,7 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       Server-Timing:
-      - gfet4t7; dur=261
+      - gfet4t7; dur=61
       Alt-Svc:
       - quic=":443"; ma=2592000; v="46,43",h3-Q050=":443"; ma=2592000,h3-Q049=":443";
         ma=2592000,h3-Q048=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443";
@@ -111,7 +111,7 @@ http_interactions:
            "status" : "OK"
         }
     http_version: null
-  recorded_at: Mon, 20 Apr 2020 22:09:01 GMT
+  recorded_at: Mon, 20 Apr 2020 22:09:02 GMT
 - request:
     method: get
     uri: https://api.openweathermap.org/data/2.5/onecall?appid=<OPEN_WEATER_API_KEY>&lat=28.5383355&lon=-81.3792365&units=imperial
@@ -133,7 +133,7 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Mon, 20 Apr 2020 22:09:01 GMT
+      - Mon, 20 Apr 2020 22:09:02 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -209,5 +209,5 @@ http_interactions:
         clouds","icon":"02d"}],"clouds":24,"uvi":10.47},{"dt":1588006800,"sunrise":1587984462,"sunset":1588031890,"temp":{"day":79.39,"min":63.32,"max":81.34,"night":63.97,"eve":71.31,"morn":63.32},"feels_like":{"day":71.4,"night":61.07,"eve":67.98,"morn":55.72},"pressure":1020,"humidity":17,"dew_point":32.38,"wind_speed":7.54,"wind_deg":346,"weather":[{"id":800,"main":"Clear","description":"clear
         sky","icon":"01d"}],"clouds":0,"uvi":10.72}]}'
     http_version: null
-  recorded_at: Mon, 20 Apr 2020 22:09:01 GMT
+  recorded_at: Mon, 20 Apr 2020 22:09:02 GMT
 recorded_with: VCR 5.1.0
