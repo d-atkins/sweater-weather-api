@@ -6,9 +6,10 @@ class CurrentForecast < Forecast
               :visibility,
               :uvi,
               :unix_sunrise,
-              :unix_sunset
+              :unix_sunset,
+              :local_time
 
-  def initialize(forecast_data)
+  def initialize(forecast_data, timezone)
     super(forecast_data)
     @temp = forecast_data[:temp].round
     @feels_like = forecast_data[:feels_like].round
@@ -17,10 +18,11 @@ class CurrentForecast < Forecast
     @uvi = forecast_data[:uvi]
     @unix_sunrise = forecast_data[:sunrise]
     @unix_sunset = forecast_data[:sunset]
+    @timezone = timezone
   end
 
-  def local_time(timezone)
-    super(timezone).strftime("%l:%M %p, %B %e")
+  def local_time
+    super(@timezone).strftime("%l:%M %p, %B %e")
   end
 
   private
