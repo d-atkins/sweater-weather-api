@@ -4,7 +4,7 @@ RSpec.describe DailyForecast do
   before(:each) do
     json_response = File.read('./spec/fixtures/weather_response.json')
     weather_data = JSON.parse(json_response, symbolize_names: true)
-    @day_forecast = DailyForecast.new(weather_data[:daily].first)
+    @day_forecast = DailyForecast.new(weather_data[:daily].first, 'America/Denver')
   end
 
   describe 'attributes' do
@@ -15,12 +15,13 @@ RSpec.describe DailyForecast do
       expect(@day_forecast.weather.first[:icon]).to eq('01d')
       expect(@day_forecast.min).to eq(50)
       expect(@day_forecast.max).to eq(59)
+      expect(@day_forecast.day).to eq('Sunday')
     end
   end
 
   describe 'methods' do
     it 'local time' do
-      expect(@day_forecast.local_time('America/Denver')).to eq ("Sunday")
+      expect(@day_forecast.local_time).to eq ("Sunday")
     end
   end
 end

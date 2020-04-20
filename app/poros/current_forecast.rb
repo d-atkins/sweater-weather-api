@@ -10,7 +10,7 @@ class CurrentForecast < Forecast
               :local_time
 
   def initialize(forecast_data, timezone)
-    super(forecast_data)
+    super(forecast_data, timezone)
     @temp = forecast_data[:temp].round
     @feels_like = forecast_data[:feels_like].round
     @humidity = forecast_data[:humidity]
@@ -18,12 +18,11 @@ class CurrentForecast < Forecast
     @uvi = forecast_data[:uvi]
     @unix_sunrise = forecast_data[:sunrise]
     @unix_sunset = forecast_data[:sunset]
-    @timezone = timezone
     @current_time = local_time
   end
 
   def local_time
-    super(@timezone).strftime("%l:%M %p, %B %e").strip
+    super.strftime("%l:%M %p, %B %e").strip
   end
 
   private
