@@ -10,7 +10,7 @@ RSpec.describe 'Antipode API',type: :request do
 
     expect(antipode_info[:id]).to be_nil
     expect(antipode_info[:type]).to eq('antipode')
-    expect(antipode_info[:attributes][:location_name]).to eq('RP69, Jujuy, Argentina')
+    expect(antipode_info[:attributes][:location_name]).to eq('Jujuy, Argentina')
     expect(antipode_info[:attributes][:forecast][:summary]).to_not be_empty
     expect(antipode_info[:attributes][:forecast][:summary]).to be_instance_of(String)
     expect(antipode_info[:attributes][:forecast][:current_temperature]).to be_instance_of(Integer)

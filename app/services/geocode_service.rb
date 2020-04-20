@@ -11,6 +11,7 @@ class GeocodeService
     response = conn.get('/maps/api/geocode/json') do |f|
       f.params['key'] = ENV['GEOCODE_API_KEY']
       f.params['latlng'] = "#{lat},#{long}"
+      f.params['result_type'] = "administrative_area_level_1"
     end
     JSON.parse(response.body, symbolize_names: true)[:results]
   end
