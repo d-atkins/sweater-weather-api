@@ -1,7 +1,5 @@
-class CurrentForecast
+class CurrentForecast < Forecast
   attr_reader :location,
-              :unix_time,
-              :weather,
               :temp,
               :feels_like,
               :humidity,
@@ -11,8 +9,7 @@ class CurrentForecast
               :unix_sunset
 
   def initialize(forecast_data)
-    @unix_time = forecast_data[:dt]
-    @weather = forecast_data[:weather]
+    super(forecast_data)
     @temp = forecast_data[:temp].round
     @feels_like = forecast_data[:feels_like].round
     @humidity = forecast_data[:humidity]
