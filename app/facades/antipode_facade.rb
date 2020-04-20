@@ -3,7 +3,6 @@ class AntipodeFacade
 
   def initialize(location)
     @location = location
-    @id = nil
   end
 
   def location_name
