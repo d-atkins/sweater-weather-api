@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe OpenWeatherService do
   describe 'methods' do
     describe 'get_forecast' do
-      it 'gets necessary forecast data for valid search' do
+      it 'gets necessary forecast data for valid search', :vcr do
         coordinates = {lat: 39.7392358, long: -104.990251}
         forecast_data = OpenWeatherService.get_weather_data(coordinates[:lat], coordinates[:long])
 

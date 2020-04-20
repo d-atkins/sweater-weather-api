@@ -15,19 +15,11 @@ class ForecastFacade
   end
 
   def hourly
-    @hourly ||= forecast_data[:hourly].first(8).map do |hour|
-      hour_forecast = HourlyForecast.new(hour)
-      hour_time = hour_forecast.local_time(timezone)
-      {hour_time => hour_forecast}
-    end
+    @hourly ||= forecast_data[:hourly].first(8).map { |hour| HourlyForecast.new(hour, timezone) }
   end
 
   def daily
-    @daily ||= forecast_data[:daily].map do |day|
-      day_forecast = DailyForecast.new(day)
-      day_time = day_forecast.local_time(timezone)
-      {day_time => day_forecast}
-    end
+    @daily ||= forecast_data[:daily].map { |day| DailyForecast.new(day, timezone) }
   end
 
   private

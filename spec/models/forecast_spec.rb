@@ -4,7 +4,7 @@ RSpec.describe Forecast do
   before(:each) do
     json_response = File.read('./spec/fixtures/weather_response.json')
     weather_data = JSON.parse(json_response, symbolize_names: true)
-    @forecast = Forecast.new(weather_data[:current])
+    @forecast = Forecast.new(weather_data[:current], 'America/Denver')
   end
 
   describe 'attributes' do
@@ -18,7 +18,7 @@ RSpec.describe Forecast do
 
   describe 'methods' do
     it 'local time' do
-      expect(@forecast.local_time('America/Denver').strftime("%I:%M %p")).to eq ("01:52 PM")
+      expect(@forecast.local_time.strftime("%I:%M %p")).to eq ("01:52 PM")
     end
   end
 end
