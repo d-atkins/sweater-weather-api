@@ -20,6 +20,11 @@ group :development, :test do
   gem 'shoulda-matchers'
 end
 
+group :test do
+  gem 'webmock'
+  gem 'vcr'
+end
+
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'

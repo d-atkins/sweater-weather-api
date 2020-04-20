@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe GeocodeService do
   describe 'methods' do
-    describe 'get_coordinates' do
+    describe 'get_coordinates', :vcr do
       it 'gets name, latitude, and longitude from a valid search' do
         address_data = GeocodeService.get_coordinates('denver,co')
 
@@ -17,7 +17,7 @@ RSpec.describe GeocodeService do
         expect(address_data[:geometry][:location][:lng]).to eq(-122.6750261)
       end
 
-      it 'returns nil for an invalid search' do
+      it 'returns nil for an invalid search', :vcr do
         address_data = GeocodeService.get_coordinates('aeirjslas,lk')
 
         expect(address_data).to be_nil
