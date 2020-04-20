@@ -5,7 +5,6 @@ class DailyForecast < Forecast
     super(daily_forecast_data)
     @min = daily_forecast_data[:temp][:min].round
     @max = daily_forecast_data[:temp][:max].round
-    require "pry"; binding.pry
   end
 
   def day_of_week(timezone)
