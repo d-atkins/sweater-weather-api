@@ -17,4 +17,10 @@ RSpec.describe DailyForecast do
       expect(@day_forecast.max).to eq(59)
     end
   end
+
+  describe 'methods' do
+    it 'local time' do
+      expect(@day_forecast.local_time('America/Denver')).to eq ("Sunday")
+    end
+  end
 end

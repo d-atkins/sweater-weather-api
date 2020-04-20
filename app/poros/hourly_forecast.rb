@@ -1,9 +1,12 @@
-class HourlyForecast
-  attr_reader :unix_time, :weather, :temp
+class HourlyForecast < Forecast
+  attr_reader :temp
 
   def initialize(hourly_forecast_data)
-    @unix_time = hourly_forecast_data[:dt]
-    @weather = hourly_forecast_data[:weather]
+    super(hourly_forecast_data)
     @temp = hourly_forecast_data[:temp].round
+  end
+
+  def local_time(timezone)
+    super(timezone).strftime("%l %p").strip
   end
 end

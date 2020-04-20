@@ -1,10 +1,13 @@
-class DailyForecast
-  attr_reader :unix_time, :weather, :min, :max
+class DailyForecast < Forecast
+  attr_reader :min, :max
 
-  def initialize(hourly_forecast_data)
-    @unix_time = hourly_forecast_data[:dt]
-    @weather = hourly_forecast_data[:weather]
-    @min = hourly_forecast_data[:temp][:min].round
-    @max = hourly_forecast_data[:temp][:max].round
+  def initialize(daily_forecast_data)
+    super(daily_forecast_data)
+    @min = daily_forecast_data[:temp][:min].round
+    @max = daily_forecast_data[:temp][:max].round
+  end
+
+  def local_time(timezone)
+    super(timezone).strftime("%A")
   end
 end
