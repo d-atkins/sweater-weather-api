@@ -13,7 +13,7 @@ RSpec.describe 'Users API', type: :request do
 
 
     expect(response).to be_successful
-    expect(response.status).to eq(200)
+    expect(response.status).to eq(201)
 
     parsed_response = JSON.parse(response.body, symbolize_names: true)[:data]
 
