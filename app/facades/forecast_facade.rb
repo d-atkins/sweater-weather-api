@@ -3,7 +3,6 @@ class ForecastFacade
 
   def initialize(query)
     @query = query
-    @id = nil
   end
 
   def location
