@@ -1,4 +1,8 @@
+require './lib/modules/jsonable'
+
 class FlickrService
+  include Jsonable
+
   def self.get_photo(location)
     response = conn.get('/services/rest/') do |f|
       f.params['method'] = 'flickr.photos.search'
@@ -18,9 +22,5 @@ class FlickrService
         conn.params['format'] = 'json'
         conn.params['nojsoncallback'] = 1
       end
-    end
-
-    def self.get_json(response)
-      JSON.parse(response.body, symbolize_names: true)
     end
 end
