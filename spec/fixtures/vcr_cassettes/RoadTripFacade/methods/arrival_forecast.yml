@@ -91,7 +91,7 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       Server-Timing:
-      - gfet4t7; dur=30
+      - gfet4t7; dur=21
       Alt-Svc:
       - quic=":443"; ma=2592000; v="46,43",h3-Q050=":443"; ma=2592000,h3-Q049=":443";
         ma=2592000,h3-Q048=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443";
@@ -183,7 +183,7 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Tue, 21 Apr 2020 06:40:55 GMT
+      - Tue, 21 Apr 2020 06:40:56 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -259,5 +259,5 @@ http_interactions:
         clouds","icon":"04d"}],"clouds":100,"uvi":8.73},{"dt":1588096800,"sunrise":1588075475,"sunset":1588124811,"temp":{"day":54.03,"min":54.03,"max":54.03,"night":54.03,"eve":54.03,"morn":54.03},"feels_like":{"day":45.93,"night":45.93,"eve":45.93,"morn":45.93},"pressure":1011,"humidity":31,"dew_point":34.88,"wind_speed":6.24,"wind_deg":131,"weather":[{"id":802,"main":"Clouds","description":"scattered
         clouds","icon":"03n"}],"clouds":25,"uvi":9.33}]}'
     http_version: null
-  recorded_at: Tue, 21 Apr 2020 06:40:55 GMT
+  recorded_at: Tue, 21 Apr 2020 06:40:56 GMT
 recorded_with: VCR 5.1.0
