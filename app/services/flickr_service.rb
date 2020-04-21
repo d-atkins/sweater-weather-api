@@ -2,9 +2,6 @@ class FlickrService
   def self.get_photo(location)
     response = conn.get('/services/rest/') do |f|
       f.params['method'] = 'flickr.photos.search'
-      f.params['api_key'] = ENV['FLICKR_API_KEY']
-      f.params['format'] = 'json'
-      f.params['nojsoncallback'] = 1
       f.params['sort'] = 'relevance'
       f.params['per_page'] = 1
       f.params['extras'] = 'url_l,url_o'
@@ -16,7 +13,11 @@ class FlickrService
   private
 
     def self.conn
-      Faraday.new("https://www.flickr.com")
+      Faraday.new("https://www.flickr.com") do |conn|
+        conn.params['api_key'] = ENV['FLICKR_API_KEY']
+        conn.params['format'] = 'json'
+        conn.params['nojsoncallback'] = 1
+      end
     end
 
     def self.get_json(response)
