@@ -4,8 +4,10 @@ module Jsonable
   end
 
   module ClassMethods
-    def get_json(response)
-      JSON.parse(response.body, symbolize_names: true)
-    end
+    private
+
+      def get_json(response)
+        JSON.parse(response.body, symbolize_names: true)
+      end
   end
 end
