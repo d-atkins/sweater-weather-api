@@ -6,12 +6,16 @@ class OpenWeatherService
       f.params['lon'] = lon
       f.params['units'] = 'imperial'
     end
-    JSON.parse(response.body, symbolize_names: true)
+    get_json(response)
   end
 
   private
 
     def self.conn
       Faraday.new('https://api.openweathermap.org/')
+    end
+
+    def self.get_json(response)
+      JSON.parse(response.body, symbolize_names: true)
     end
 end

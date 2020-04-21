@@ -10,12 +10,16 @@ class FlickrService
       f.params['extras'] = 'url_l,url_o'
       f.params['text'] = location
     end
-    JSON.parse(response.body, symbolize_names: true)[:photos][:photo].first
+    get_json(response)[:photos][:photo].first
   end
 
   private
 
     def self.conn
       Faraday.new("https://www.flickr.com")
+    end
+
+    def self.get_json(response)
+      JSON.parse(response.body, symbolize_names: true)
     end
 end
