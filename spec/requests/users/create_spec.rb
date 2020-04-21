@@ -31,7 +31,7 @@ RSpec.describe 'Users API', type: :request do
     expect(user.password_digest).to_not be_empty
   end
 
-  describe 'fails with a 400' do
+  describe 'fails with a 422' do
     it 'if email is missing' do
       registration_info = {password: 'burgers', password_confirmation: 'burgers'}
       post '/api/v1/users',
@@ -42,9 +42,9 @@ RSpec.describe 'Users API', type: :request do
       parsed_response = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to_not be_successful
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(422)
 
-      expect(parsed_response[:Status]).to eq(400)
+      expect(parsed_response[:Status]).to eq(422)
       expect(parsed_response[:Error]).to eq("Email can't be blank")
 
       user = User.last
@@ -62,9 +62,9 @@ RSpec.describe 'Users API', type: :request do
       parsed_response = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to_not be_successful
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(422)
 
-      expect(parsed_response[:Status]).to eq(400)
+      expect(parsed_response[:Status]).to eq(422)
       expect(parsed_response[:Error]).to eq("Password can't be blank")
 
       user = User.last
@@ -82,9 +82,9 @@ RSpec.describe 'Users API', type: :request do
       parsed_response = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to_not be_successful
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(422)
 
-      expect(parsed_response[:Status]).to eq(400)
+      expect(parsed_response[:Status]).to eq(422)
       expect(parsed_response[:Error]).to eq("Password confirmation can't be blank")
 
       user = User.last
@@ -102,9 +102,9 @@ RSpec.describe 'Users API', type: :request do
       parsed_response = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to_not be_successful
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(422)
 
-      expect(parsed_response[:Status]).to eq(400)
+      expect(parsed_response[:Status]).to eq(422)
       expect(parsed_response[:Error]).to eq("Password confirmation doesn't match password")
 
       user = User.last
@@ -121,9 +121,9 @@ RSpec.describe 'Users API', type: :request do
       parsed_response = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to_not be_successful
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(422)
 
-      expect(parsed_response[:Status]).to eq(400)
+      expect(parsed_response[:Status]).to eq(422)
       expect(parsed_response[:Error]).to eq("Email has already been taken")
 
       expect(User.all.count).to eq(1)
