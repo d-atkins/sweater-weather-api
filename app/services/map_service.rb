@@ -11,9 +11,9 @@ class MapService
     get_json(response)[:routes].first[:legs].first[:duration][:value]
   end
 
-  def self.get_coordinates(query)
+  def self.get_coordinates(location)
     response = conn.get('/maps/api/geocode/json') do |f|
-      f.params['address'] = query
+      f.params['address'] = location
     end
     get_json(response)[:results].first
   end
