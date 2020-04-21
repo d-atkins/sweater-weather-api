@@ -6,8 +6,7 @@ RSpec.describe MapService do
       travel_time = MapService.get_travel_time('denver,co', 'boulder,co')
 
       expect(travel_time).to_not be_nil
-      expect(travel_time).to be_instance_of(String)
-      expect(travel_time.split.last).to eq('mins')
+      expect(travel_time).to be_instance_of(Integer)
     end
   end
 end

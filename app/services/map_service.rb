@@ -4,7 +4,7 @@ class MapService
       req.params['origin'] = origin
       req.params['destination'] = destination
     end
-    JSON.parse(response.body, symbolize_names: true)[:routes].first[:legs].first[:duration][:text]
+    JSON.parse(response.body, symbolize_names: true)[:routes].first[:legs].first[:duration][:value]
   end
 
   def self.conn
