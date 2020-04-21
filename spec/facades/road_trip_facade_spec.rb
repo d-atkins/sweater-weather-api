@@ -15,8 +15,7 @@ RSpec.describe RoadTripFacade, type: :model do
     end
 
     it 'travel_time', :vcr do
-      expect(@road_trip_facade.travel_time).to be_instance_of(String)
-      expect(@road_trip_facade.travel_time).to_not be_empty
+      expect(@road_trip_facade.travel_time).to be_instance_of(Integer)
     end
 
     it 'arrival_forecast', :vcr do
