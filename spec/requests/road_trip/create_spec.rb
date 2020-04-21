@@ -12,7 +12,7 @@ RSpec.describe 'Road Trip API', type: :request do
       params: road_trip_params.to_json,
       headers: {'Content-Type' => 'application/json', 'Accept' => 'application/json'}
 
-    road_trip_info = JSON.parse(response.body, symbolize_names: true)
+    road_trip_info = JSON.parse(response.body, symbolize_names: true)[:data][:attributes]
 
     expect(response).to be_successful
 
@@ -20,10 +20,9 @@ RSpec.describe 'Road Trip API', type: :request do
     expect(road_trip_info[:destination]).to eq('Pueblo,CO')
     expect(road_trip_info[:travel_time]).to be_instance_of(String)
     expect(road_trip_info[:travel_time]).to_not be_empty
-    expect(road_trip_info[:arrival_forecast][:temp]).to be_instance_of(String)
-    expect(road_trip_info[:arrival_forecast][:temp]).to_not be_empty
-    expect(road_trip_info[:arrival_forecast][:summary]).to be_instance_of(String)
-    expect(road_trip_info[:arrival_forecast][:summary]).to_not be_empty
+    expect(road_trip_info[:arrival_forecast][:temp]).to be_instance_of(Integer)
+    expect(road_trip_info[:arrival_forecast][:weather].first[:description]).to be_instance_of(String)
+    expect(road_trip_info[:arrival_forecast][:weather].first[:description]).to_not be_empty
   end
 
   describe 'fails with a 401' do
