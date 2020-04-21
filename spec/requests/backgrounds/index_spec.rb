@@ -8,8 +8,11 @@ RSpec.describe 'Backgrounds API', type: :request do
 
     background_info = JSON.parse(response.body, symbolize_names: true)[:data][:attributes]
 
-    expect(background_info[:url_l]).to eq('url')
-    expect(background_info[:url_o]).to eq('url')
-    expect(background_info[:title]).to eq('title')
+    expect(background_info[:url_l]).to_not be_empty
+    expect(background_info[:url_l]).to be_instance_of(String)
+    expect(background_info[:url_o]).to_not be_empty
+    expect(background_info[:url_o]).to be_instance_of(String)
+    expect(background_info[:title]).to_not be_empty
+    expect(background_info[:title]).to be_instance_of(String)
   end
 end
