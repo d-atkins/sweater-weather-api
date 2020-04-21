@@ -1,8 +1,13 @@
+require './lib/modules/forecastable'
+
 class ForecastFacade
+  include Forecastable
+
   attr_reader :id, :location, :currenty, :daily, :hourly
 
-  def initialize(query)
-    @query = query
+  def initialize(location_query)
+    @location_query = location_query
+    @geo_location = location_query
   end
 
   def location
@@ -10,31 +15,14 @@ class ForecastFacade
   end
 
   def current
-    @current ||= CurrentForecast.new(forecast_data[:current], timezone)
+    current_data
   end
 
   def hourly
-    @hourly ||= forecast_data[:hourly].first(8).map { |hour| HourlyForecast.new(hour, timezone) }
+    hourly_data.first(8)
   end
 
   def daily
-    @daily ||= forecast_data[:daily].map { |day| DailyForecast.new(day, timezone) }
+    daily_data
   end
-
-  private
-    def geocode_data
-      @geo_data ||= MapService.get_coordinates(@query)
-    end
-
-    def coordinates
-      geocode_data[:geometry][:location]
-    end
-
-    def forecast_data
-      @weather_data ||= OpenWeatherService.get_weather_data(coordinates[:lat], coordinates[:lng])
-    end
-
-    def timezone
-      forecast_data[:timezone]
-    end
 end
