@@ -4,8 +4,14 @@ class RoadTripFacade
   def initialize(origin, destination)
     @origin = origin
     @destination = destination
-    @travel_time = display_duration
-    @arrival_forecast = get_nearest_forecast
+  end
+
+  def arrival_forecast
+    get_nearest_forecast
+  end
+
+  def travel_time
+    display_duration
   end
 
   private
@@ -48,16 +54,12 @@ class RoadTripFacade
       @geo_data ||= MapService.get_coordinates(@destination)
     end
 
+    def coordinates
+      geocode_data[:geometry][:location]
+    end
+
     def forecast_data
-      @weather_data ||= OpenWeatherService.get_weather_data(lat, lon)
-    end
-
-    def lat
-      geocode_data[:geometry][:location][:lat]
-    end
-
-    def lon
-      geocode_data[:geometry][:location][:lng]
+      @weather_data ||= OpenWeatherService.get_weather_data(coordinates[:lat], coordinates[:lng])
     end
 
     def hourly

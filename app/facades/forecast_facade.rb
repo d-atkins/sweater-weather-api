@@ -26,16 +26,12 @@ class ForecastFacade
       @geo_data ||= MapService.get_coordinates(@query)
     end
 
+    def coordinates
+      geocode_data[:geometry][:location]
+    end
+
     def forecast_data
-      @weather_data ||= OpenWeatherService.get_weather_data(lat, lon)
-    end
-
-    def lat
-      geocode_data[:geometry][:location][:lat]
-    end
-
-    def lon
-      geocode_data[:geometry][:location][:lng]
+      @weather_data ||= OpenWeatherService.get_weather_data(coordinates[:lat], coordinates[:lng])
     end
 
     def timezone
