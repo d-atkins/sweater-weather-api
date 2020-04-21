@@ -15,14 +15,14 @@ RSpec.describe RoadTripFacade, type: :model do
     end
 
     it 'travel_time', :vcr do
-      expect(@road_trip_facade.travel_time).to be_instance_of(Integer)
+      expect(@road_trip_facade.travel_time).to be_instance_of(String)
+      expect(@road_trip_facade.travel_time).to_not be_empty
     end
 
     it 'arrival_forecast', :vcr do
-      expect(@road_trip_facade.arrival_forecast[:temp]).to be_instance_of(String)
-      expect(@road_trip_facade.arrival_forecast[:temp]).to_not be_empty
-      expect(@road_trip_facade.arrival_forecast[:summary]).to be_instance_of(String)
-      expect(@road_trip_facade.arrival_forecast[:summary]).to_not be_empty
+      expect(@road_trip_facade.arrival_forecast.temp).to be_instance_of(Integer)
+      expect(@road_trip_facade.arrival_forecast.weather.first[:description]).to be_instance_of(String)
+      expect(@road_trip_facade.arrival_forecast.weather.first[:description]).to_not be_empty
     end
   end
 end
