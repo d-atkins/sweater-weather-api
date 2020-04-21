@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :user do
-    email { "burgertime@example.com" }
-    password_digest { "burgers" }
+    email { "factory.bot.user@example.com" }
+    password { "burgers" }
+    password_confirmation { "burgers" }
     api_key { "123" }
   end
 end
