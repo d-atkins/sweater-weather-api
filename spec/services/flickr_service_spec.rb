@@ -10,6 +10,20 @@ RSpec.describe FlickrService do
         expect(background_data[:url_o]).to_not be_nil
         expect(background_data[:title]).to_not be_nil
       end
+
+      it 'handles different query formats', :vcr do
+        background_data = FlickrService.get_photo('denver, colorado')
+
+        expect(background_data[:url_l]).to_not be_nil
+        expect(background_data[:url_o]).to_not be_nil
+        expect(background_data[:title]).to_not be_nil
+
+        background_data = FlickrService.get_photo('perth,australia')
+
+        expect(background_data[:url_l]).to_not be_nil
+        expect(background_data[:url_o]).to_not be_nil
+        expect(background_data[:title]).to_not be_nil
+      end
     end
   end
 end
