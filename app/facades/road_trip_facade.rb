@@ -45,7 +45,7 @@ class RoadTripFacade
     end
 
     def geocode_data
-      @geo_data ||= GeocodeService.get_coordinates(@destination)
+      @geo_data ||= MapService.get_coordinates(@destination)
     end
 
     def forecast_data

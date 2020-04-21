@@ -24,7 +24,7 @@ class ForecastFacade
 
   private
     def geocode_data
-      @geo_data ||= GeocodeService.get_coordinates(@query)
+      @geo_data ||= MapService.get_coordinates(@query)
     end
 
     def forecast_data
