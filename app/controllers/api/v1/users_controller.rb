@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
     if user.save
       render json: UsersSerializer.new(user), status: 201
     else
-      render json: error(user), status: 400
+      render json: error(user), status: 422
     end
   end
 
@@ -15,6 +15,6 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def error(user)
-      {Status: 400, Error: user.errors.full_messages.to_sentence.capitalize}
+      {Status: 422, Error: user.errors.full_messages.to_sentence.capitalize}
     end
 end
