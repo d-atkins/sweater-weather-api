@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Forecast API',type: :request do
+RSpec.describe 'Forecast API', type: :request do
   it 'sends forecast info' do
     weather_data = File.read('./spec/fixtures/weather_response.json')
     weather_response = double("response", status: 200, body: weather_data)
