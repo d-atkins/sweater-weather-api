@@ -25,6 +25,28 @@ RSpec.describe 'Road Trip API', type: :request do
     expect(road_trip_info[:arrival_forecast][:weather].first[:description]).to_not be_empty
   end
 
+  it 'switches to daily forecast for very long road trips', :vcr do
+    road_trip_params = {origin: 'Anchorage,AL', destination: 'Tampa,FL', api_key: '123'}
+
+    post '/api/v1/road_trip',
+      params: road_trip_params.to_json,
+      headers: {'Content-Type' => 'application/json', 'Accept' => 'application/json'}
+
+    road_trip_info = JSON.parse(response.body, symbolize_names: true)[:data][:attributes]
+
+    expect(response).to be_successful
+
+    expect(road_trip_info[:origin]).to eq('Anchorage,AL')
+    expect(road_trip_info[:destination]).to eq('Tampa,FL')
+    expect(road_trip_info[:travel_time]).to be_instance_of(String)
+    expect(road_trip_info[:travel_time]).to_not be_empty
+    expect(road_trip_info[:arrival_forecast][:day]).to be_instance_of(String)
+    expect(road_trip_info[:arrival_forecast][:day]).to_not be_empty
+    expect(road_trip_info[:arrival_forecast][:temp]).to be_nil
+    expect(road_trip_info[:arrival_forecast][:weather].first[:description]).to be_instance_of(String)
+    expect(road_trip_info[:arrival_forecast][:weather].first[:description]).to_not be_empty
+  end
+
   describe 'fails with a 401' do
     it 'if API key is missing', :vcr do
       road_trip_params = {origin: 'Denver,CO', destination: 'Pueblo,CO'}
