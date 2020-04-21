@@ -3,7 +3,7 @@ class Api::V1::RoadTripController < ApplicationController
     user = User.find_by(api_key: user_params[:api_key])
     if user
       road_trip_facade = RoadTripFacade.new(params[:origin], params[:destination])
-      render json: RoadTripSerializer.new(road_trip_facade)
+      render json: RoadTripFacadeSerializer.new(road_trip_facade)
     else
       render json: error, status: 401
     end
