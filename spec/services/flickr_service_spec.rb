@@ -7,7 +7,6 @@ RSpec.describe FlickrService do
         background_data = FlickrService.get_photo('denver,co')
 
         expect(background_data[:url_l]).to_not be_nil
-        expect(background_data[:url_o]).to_not be_nil
         expect(background_data[:title]).to_not be_nil
       end
 
@@ -15,13 +14,11 @@ RSpec.describe FlickrService do
         background_data = FlickrService.get_photo('denver, colorado')
 
         expect(background_data[:url_l]).to_not be_nil
-        expect(background_data[:url_o]).to_not be_nil
         expect(background_data[:title]).to_not be_nil
 
         background_data = FlickrService.get_photo('perth,australia')
 
         expect(background_data[:url_l]).to_not be_nil
-        expect(background_data[:url_o]).to_not be_nil
         expect(background_data[:title]).to_not be_nil
       end
     end
