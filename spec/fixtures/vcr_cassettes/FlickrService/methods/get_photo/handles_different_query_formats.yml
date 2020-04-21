@@ -1,0 +1,94 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.flickr.com/services/rest/?api_key=<FLICKR_API_KEY>&extras=url_l,url_o&format=json&method=flickr.photos.search&nojsoncallback=1&per_page=1&sort=relevance&text=denver%20colorado
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '460'
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 21 Apr 2020 17:58:40 GMT
+      Server:
+      - Apache/2.4.41 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 2c861897aa9389c1f47299b6fea5b59d.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - Imrijy-6pO6FDXoQi0td28BFs6ZUe5bHbJauPKZPLSmjZjyU5vfuZw==
+    body:
+      encoding: UTF-8
+      string: '{"photos":{"page":1,"pages":881254,"perpage":1,"total":"881254","photo":[{"id":"49057077877","owner":"82461392@N00","secret":"fa993cd95b","server":"65535","farm":66,"title":"D
+        E N V E R","ispublic":1,"isfriend":0,"isfamily":0,"url_l":"https:\/\/live.staticflickr.com\/65535\/49057077877_fa993cd95b_b.jpg","height_l":1024,"width_l":683,"url_o":"https:\/\/live.staticflickr.com\/65535\/49057077877_515f02f67b_o.jpg","height_o":1728,"width_o":1152}]},"stat":"ok"}'
+    http_version: null
+  recorded_at: Tue, 21 Apr 2020 17:58:41 GMT
+- request:
+    method: get
+    uri: https://www.flickr.com/services/rest/?api_key=<FLICKR_API_KEY>&extras=url_l,url_o&format=json&method=flickr.photos.search&nojsoncallback=1&per_page=1&sort=relevance&text=perth%20australia
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '450'
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 21 Apr 2020 17:58:42 GMT
+      Server:
+      - Apache/2.4.41 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 23d87d8c2ce38e34462e6c134d187eeb.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - kCshW7PkofDsr9jZ0qbqlHfxagiKvDUp9JV1R3Zf3xuft_lmyPD8AA==
+    body:
+      encoding: UTF-8
+      string: '{"photos":{"page":1,"pages":469155,"perpage":1,"total":"469155","photo":[{"id":"33812015501","owner":"43355249@N00","secret":"0aa24dffea","server":"2823","farm":3,"title":"Perth","ispublic":1,"isfriend":0,"isfamily":0,"url_l":"https:\/\/live.staticflickr.com\/2823\/33812015501_0aa24dffea_b.jpg","height_l":683,"width_l":1024,"url_o":"https:\/\/live.staticflickr.com\/2823\/33812015501_ea3628cb7a_o.jpg","height_o":1600,"width_o":2399}]},"stat":"ok"}'
+    http_version: null
+  recorded_at: Tue, 21 Apr 2020 17:58:42 GMT
+recorded_with: VCR 5.1.0
