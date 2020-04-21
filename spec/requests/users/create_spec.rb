@@ -20,7 +20,7 @@ RSpec.describe 'Users API', type: :request do
     user = User.last
 
     expect(parsed_response[:type]).to eq('users')
-    expect(parsed_response[:id]).to eq(1)
+    expect(parsed_response[:id]).to eq(user.id.to_s)
     expect(parsed_response[:attributes][:email]).to eq('unagi@example.com')
     expect(parsed_response[:attributes][:api_key]).to eq(user.api_key)
 
